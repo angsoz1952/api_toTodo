@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 Executando localmente
 ```powershell
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
+fastapi dev main.py
 # A API ficará disponível em http://127.0.0.1:8000
 ```
 
