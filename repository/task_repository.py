@@ -17,18 +17,17 @@ def create_task_repository(task: TaskCreate, db: Session):
     # retorna a tarefa criada
     return task
 
-def list_all_repository(db: Session):
+def list_all_repository(db: Session, user_id: int):
 
-    tasks = db.query(Task).all()
+    tasks = db.query(Task).filter(Task.user_id == user_id).all()
     
     return tasks
     
-def get_task_by_id_repository(task_id: int,  db: Session):
-    task = db.query(Task).filter(Task.id == task_id).first()
+def get_task_by_id_repository(task_id: int,  db: Session, user_id: int):
+    task = db.query(Task).filter(Task.id == task_id, Task.user_id == user_id).first()
     return task
 
 def delete_task_repository(task, db: Session):
-   
     if not task:
         return None
 

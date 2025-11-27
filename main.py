@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api import tasks_api
+from api import tasks_api, user_api
 
 app = FastAPI(
     title= "API de Tarefas",
@@ -8,3 +8,4 @@ app = FastAPI(
 )
 
 app.include_router(tasks_api.router)
+app.include_router(user_api.router)

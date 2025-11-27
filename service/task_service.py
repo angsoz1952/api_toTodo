@@ -10,7 +10,8 @@ class TaskService:
         news_task = Task(
             title=task.title.upper(),
             description=task.description.capitalize(),
-            done=task.done
+            done=task.done ,
+            user_id=task.user_id
         )
         return create_task_repository(news_task, db)
 
@@ -21,8 +22,8 @@ class TaskService:
 
 
     @staticmethod
-    def get_task_by_id(task_id: int, db: Session):
-        return get_task_by_id_repository(task_id, db)
+    def get_task_by_id(task_id: int, db: Session, user_id: int):
+        return get_task_by_id_repository(task_id, db, user_id)
 
 
     @staticmethod

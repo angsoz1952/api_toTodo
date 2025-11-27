@@ -21,7 +21,7 @@ def get_db():
     finally:
         db.close()
 
-if not os.path.exists("./database.db"):
-    from models.task import Task
-    # Cria o arquivo SQLite e as tabelas somente se o arquivo não existir
-    Base.metadata.create_all(bind=engine)
+from models.task import Task
+from models.user import User
+# Cria as tabelas se não existirem
+Base.metadata.create_all(bind=engine)
